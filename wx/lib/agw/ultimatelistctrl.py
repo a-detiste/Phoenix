@@ -549,7 +549,7 @@ IL_FIXED_SIZE = 0
 IL_VARIABLE_SIZE = 1
 
 # Python integers, to make long types to work with CreateListItem
-INTEGER_TYPES = int
+INTEGER_TYPES = [int]
 
 
 # ----------------------------------------------------------------------------
