@@ -242,7 +242,7 @@ class Topic(PublisherMixin):
 
     def getSubtopics(self):
         """Get a list of Topic instances that are subtopics of self."""
-        return self.__subTopics.values()
+        return list(self.__subTopics.values())
 
     def getNumListeners(self):
         """Return number of listeners currently subscribed to topic. This is
@@ -262,7 +262,7 @@ class Topic(PublisherMixin):
     def getListeners(self):
         """Get a copy of list of listeners subscribed to this topic. Safe to iterate over while listeners
         get un/subscribed from this topics (such as while sending a message)."""
-        return self.__listeners.keys()
+        return list(self.__listeners.keys())
 
     def getListenersIter(self):
         """Get an iterator over listeners subscribed to this topic. Do not use if listeners can be
@@ -337,7 +337,7 @@ class Topic(PublisherMixin):
         if filter is None:
             for listener in self.__listeners:
                 listener._unlinkFromTopic_()
-            unsubd = self.__listeners.keys()
+            unsubd = list(self.__listeners.keys())
             self.__listeners = {}
         else:
             unsubd = []
